@@ -1,0 +1,25 @@
+This is a two-page attempt at a simple formalization of ZFC in natural language. I was partly inspired by the remark of an old french mathematician who remarked “A mathematical theory is not to be considered complete until you have made it so clear that you can explain it to the first man whom you meet on the street.“. My aim was to make the formalism clear not only to others but to myself as well, wanting to get a better understanding of foundational mathematics. So here is a sort of visualization of ZFC and how it is constructed. It attempts to be a human-readable but rigorous formalism. Suggestions and corrections are very much appreciated.
+
+I had multiple goals while making this thing. Firstly, I wanted to find the simplest possible languages that are able to express ZFC in a way that is still intuitive to understand. For example, I managed to construct the language with a mere seven-symbol alphabet. Secondly, I wanted to do the formalism itself in an intuitive but rigorous metalanguage, so I used a very rudimentary English as the metalanguage. I used if-then statements and other simple but unambiguous grammatical constructions. Thirdly, I wanted to find the smallest possible formalisms of the object language. I managed to bring the size down to about 50 sentences in the metalanguage. These goals sometimes clashed with each other, so I had to make some compromises.
+
+Designing the object language
+
+Defining what it means for an object language to be simple and intuitive is quite subjective. I made many potential formalisms, and this is one of my favourites because it is in a certain sweet spot. I also wanted to separate the object language from its metalanguage, which meant using symbols, such as “◆”, that aren’t commonly or ever used in English. With this particular formalism I did not care about making it usable, just to make it intelligible, like the brainfuck of ZFC formalisms.
+
+Instead of using any latin or greek alphabet, I denoted variables simply by using the symbol “◆” to denote the type of the variable, such as atomic proposition or individual, and the prime symbol “′” to have infinitely many of them. For example, “◆′′′′′′′” is an atomic proposition and “◆◆′′′′′′′” is an individual. I wanted to include predicates and functions as well, so I did. To do this I had to give them arities in order to avoid parentheses in the language. The arity symbols "☼" are placed right after the counter of a function or a predicate and then the right amount of arguments are placed. The way that arguments are given to functions and predicates is just by placing them in front without any commas to separate them. For example, “◆◆◆◆′☼” is a unary predicate and “◆◆◆◆′☼◆′” is a unary predicate applied to one individual, forming a well-formed formula. Now, you might notice the lack of an equality sign "=" or a membership sign "∈". That is because I assigned them to the first and second binary predicates respectively. So "◆◆◆◆′☼☼" stands for "=" and "◆◆◆◆′′☼☼" stands for "∈". This is a further simplification of the language.
+
+I used two connectives, the traditional ones. I originally tried with the sheffer stroke alone, but that made the formalisms multiple times longer than it is now. Adding any more traditional connectives, such as the biconditional, had the same effect, increasing the overall size of the formalism. I used polish notation with connectives too to avoid parentheses.
+
+The universal quantifier works like predicates and connectives do.
+
+The final symbol “▒” is an auxiliary symbol. It does not appear in well-formed formulas of the language. Its job is to help formalize the notion of a distinct variable pair, an alternative to the notion of free and bound variables.
+
+Designing the metalanguage
+
+I used a sort of formalized English as the metalanguage, intelligible but rudimentary. It contains predicative statements, conditional statements, and conjunctive statements. Predicative statements are of the form “X is Y”, where “X” denotes some string in the object language and “Y” denotes some category of strings, such as “atomic proposition”. Conjunctive statements are placed in the antecedent of a conditional statement and not in the consequent, totally analogous to how an assertion can have multiple premisses but has one conclusion, for the sake of simplicity.
+
+As metavariables I used only “A”, “B”, “C”, “D”, and “E”. The symbols “⸢” and “⸣” are the quasi-quotation marks.
+
+Designing the formalism
+
+I wanted to describe the object language with the metalanguage in a way that is both simple and intuitive, a common theme in this whole formalism. For this purpose I turned to metamath. The most popular ZFC formalisms seem to use the notion of free and bound variables, but metamath uses instead the notion of distinct variable, which was easy for me to formalize as it is a quite simple concept. As axioms I chose the smallest ones I could find from the metamath database.
